@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mkdir -p fenics_src
+BRANCH="2018.1.0"
+cd fenics_src
+for project in fiat dijitso mshr dolfin
+do
+	git clone https://bitbucket.org/fenics-project/$project.git
+	cd $project
+	git checkout $BRANCH
+	cd ..
+done
+git clone https://bitbucket.org/magneano/ufl.git
+cd ufl
+git checkout magne/uflacs-custom-integrals
+cd ..
+git clone https://bitbucket.org/magneano/ffc.git
+cd ffc
+git checkout evaluate-reference-basis
+cd ..
+

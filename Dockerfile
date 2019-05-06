@@ -5,7 +5,7 @@
 # Authors:
 # Jørgen S. Dokken <dokken92@gmail.com>
 
-FROM quay.io/fenicsproject/dev-env:latest
+FROM quay.io/fenicsproject/dev-env:2018.1.0
 
 USER fenics
 ENV GMSH_VER=3.0.6

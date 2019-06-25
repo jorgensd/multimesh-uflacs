@@ -10,6 +10,9 @@ FROM quay.io/fenicsproject/dev-env:2018.1.0
 USER fenics
 ENV GMSH_VER=3.0.6
 COPY dependencies.conf $FENICS_HOME/dependencies.conf
+ENV IPOPT_VER=3.12.9
+COPY dolfin-adjoint.conf $FENICS_HOME/dolfin-adjoint.conf
+
 COPY fenics_pull /home/fenics/fenics_pull
 COPY fenics_build /home/fenics/fenics_build
 
@@ -22,7 +25,9 @@ RUN /bin/bash -l -c "/home/fenics/fenics_pull"
 RUN /bin/bash -l -c "/home/fenics/fenics_build fiat dijitso ufl ffc dolfin"
 
 RUN /bin/bash -l -c "source $FENICS_HOME/dependencies.conf &&\
-    	      	     install_gmsh"
+                     install_gmsh && \
+                     update_ipopt && \
+                     update_pyipopt"
 
 RUN /bin/bash -l -c "apt-get install -y graphviz graphviz-dev &&\
 	   	      	     pip3 install pygraphviz &&\

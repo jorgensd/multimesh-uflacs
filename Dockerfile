@@ -9,9 +9,8 @@ FROM quay.io/fenicsproject/dev-env:2018.1.0
 
 USER fenics
 ENV GMSH_VER=3.0.6
-COPY dependencies.conf $FENICS_HOME/dependencies.conf
 ENV IPOPT_VER=3.12.9
-COPY dolfin-adjoint.conf $FENICS_HOME/dolfin-adjoint.conf
+COPY dependencies.conf $FENICS_HOME/dependencies.conf
 
 COPY fenics_pull /home/fenics/fenics_pull
 COPY fenics_build /home/fenics/fenics_build

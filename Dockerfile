@@ -30,7 +30,7 @@ RUN /bin/bash -l -c "source $FENICS_HOME/dependencies.conf &&\
 
 RUN /bin/bash -l -c "apt-get install -y graphviz graphviz-dev &&\
 	   	      	     pip3 install pygraphviz &&\
-			     pip3 install pygmsh==4.4.0 meshio moola jdc tabulate"
+			     pip3 install pygmsh==4.4.0 meshio moola jdc tabulate tqdm"
 
 RUN /bin/bash -l -c "apt purge -y python2.7-minimal"
 

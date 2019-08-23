@@ -16,7 +16,7 @@ COPY fenics_pull /home/fenics/fenics_pull
 COPY fenics_build /home/fenics/fenics_build
 
 USER root
-RUn apt-get update && \
+RUN apt-get update && \
 apt-get install -y libgl1-mesa-glx libxcursor1 libxft2 libxinerama1 libglu1-mesa imagemagick python3-h5py python3-lxml && \
 apt-get clean
 
